@@ -1,42 +1,134 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+   margin: 0;
+   padding: 0;
+   font-size: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+
+:root {
+  --Green-200-lighter: hsl(148, 38%, 91%);
+  --Green-600-medium: hsl(169, 82%, 27%);
+  --Red: hsl(0, 66%, 54%);
+  --White: hsl(0, 0%, 100%);
+  --Grey-500-medium: hsl(186, 15%, 59%);
+  --Grey-900-darker: hsl(187, 24%, 22%);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: "Karla", serif;
+  font-size: 100%;
+  background-color:var(--Green-200-lighter);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+
+button {
+  border: none;
 }
 
-.card {
-  padding: 2em;
+input, textarea {
+  border-color: var(--Grey-500-medium);
 }
 
-.read-the-docs {
-  color: #888;
+input[type='text'], input[type='email'] {
+  outline: 1px solid hsl(186, 15%, 59%);
 }
+
+#container {
+  width: 330px;
+  height: 800px;
+  background-color: #fff;
+  margin: 2em  auto;
+}
+
+h1 {
+  font-size: 2.2em;
+  padding: .5em;
+}
+
+input:focus {
+  outline-color: var(--Grey-500-medium) ;
+}
+
+
+#form--container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  max-width: 330px;
+  padding: 1.5em 1em;
+}
+
+.input--row1, .input--row2, .input--row3
+,.input--row4, .input--row5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.input--row1 label, .input--row2 label, .input--row3 label
+,.input--row5 label {
+  margin: 1em 0;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin: 1em 0 0 0;
+}
+
+.space {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid  hsl(186, 15%, 59%);
+  margin: 1em 0;
+  
+  border-radius: 7px;
+}
+
+.space input {
+  accent-color: #0c7d69;
+  margin:0  1em 0 1.2em ;
+  transform: scale(1.2);
+}
+
+input {
+  height: 45px;
+  border-radius: 7px;
+  border: none;
+}
+
+textarea,button{
+  width: 300px;
+}
+
+textarea {
+  height: 75px;
+  
+  border-radius: 7px;
+}
+
+button {
+  height: 50px;
+  border-radius: 7px;
+  font-weight: 700;
+  color: #fff;
+  background-color: var(--Grey-900-darker);
+}
+
+.check {
+  display: flex;
+  justify-content: space-between;
+  width: 97%;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  margin-left: .5em;
+}
+
+ 

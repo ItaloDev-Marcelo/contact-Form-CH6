@@ -10,61 +10,97 @@ export default function ContactForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          
+        <div id="container">
+            <h1>Contact us</h1>
+            <form id="form--container" onSubmit={handleSubmit(onSubmit)}>
+           
+           <div className="grid-1">
            <div className="input--row1">
             <label htmlFor="firstName">First Name *</label>
-           <input {...register('firstName', {
+           <input style={{outlineColor: errors.firstName ? 'red' : 'green'}} {...register('firstName', {
             required: true
            })} name='firstName' id='firstName' type='text' />
+           {errors.firstName ? <p>This field is required</p> : null}
+           </div>
+           
            </div>
 
-           <div className="input--row2">
+          <div className="grid-2">
+          <div className="input--row2">
             <label htmlFor="lastName">Last Name *</label>
-           <input {...register('lastName', {
+           <input style={{outlineColor: errors.lastName ? 'red' : 'green'}} {...register('lastName', {
             required: true
            })} name='lastName' id='lastName' type='text' />
+            {errors.lastName ? <p>This field is required</p> : null}
            </div>
+          </div>
 
-           <div className="input--row3">
+          <div className="grid-3">
+          <div className="input--row3">
             <label htmlFor="email">Email address *</label>
-           <input {...register('email', {
+           <input  style={{outlineColor: errors.email ? 'red' : 'green'}} {...register('email', {
             required: true
            })} name={'email'} id={'email'} type={'email'} />
+            {errors.email ? <p>please enter a valid email address</p> : null}
            </div>
+          </div>
 
-           <div className="input--row4">
+          <div className="grid-4">
+          <div className="input--row4">
             <label htmlFor="">Query Type *</label>
-            <label htmlFor="queryType1">
+         
+            <div id="Qr1">
+              <div className="space">
+              <label htmlFor="queryType1">
              General Enquiry 
+            </label>
             <input {...register('queryType', {
             required: true
            })} name='queryType' id='queryType1' type='radio' value='General Enquiry' />
-            </label>
+              </div>
+            </div>
 
-            <label htmlFor="queryType2">
+            <div id="Qr2">
+             <div className="space">
+             <label htmlFor="queryType2">
             Support Request
+            </label>
             <input {...register('queryType', {
             required: true
            })} name='queryType' id='queryType2' type='radio' value='Support Request' />
-            </label>
+             </div>
+            </div>
+             
            </div>
+           {errors.queryType ? <p>please select a query type</p> : null}
+           
+          </div>
 
-           <div className="input--row5">
+          <div className="grid-5">
+          <div className="input--row5">
             <label htmlFor="message">Message *</label>
            <textarea {...register('message', {
             required: true
            })} name='message' id='message' />
            </div>
+           
+           {errors.message ? <p>This field is required</p> : null}
+          </div>
 
-           <label htmlFor="confirmTerms">
-              <input {...register('confirmCheckBox', {
+          <div className="grid-6">
+          <label className='check' htmlFor="confirmTerms">
+              <input style={{borderColor: errors.confirmCheckBox ? 'red' : 'green'}}  {...register('confirmCheckBox', {
             required: true
            })} name='confirmCheckBox' id='confirmTerms' type="checkbox" />
             I consent to being contacted by the team
             </label>   
+            
+            {errors.lastName ? 
+            <p>To submit this form, please consent to being contacted</p> : null}
+          </div>
                      
            <button type="submit">Submit</button>
         </form>
+        </div>    
     )
 }
