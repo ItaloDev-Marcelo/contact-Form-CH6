@@ -47,9 +47,8 @@ export default function ContactForm() {
           </div>
 
           <div className="grid-4">
-          <div className="input--row4">
-            <label htmlFor="">Query Type *</label>
-         
+          <label htmlFor="">Query Type *</label>
+          <div className="input--row4"> 
             <div id="Qr1">
               <div className="space" style={{outlineColor: errors.queryType ? 'red' : ''}}>
               <label htmlFor="queryType1">
@@ -78,8 +77,9 @@ export default function ContactForm() {
           </div>
 
           <div className="grid-5">
+            
+          <label htmlFor="message">Message *</label>
           <div className="input--row5">
-            <label htmlFor="message">Message *</label>
            <textarea {...register('message', {
             required: true
            })} name='message' id='message' />
