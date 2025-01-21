@@ -22,126 +22,211 @@ body {
 }
 
 
-
-button {
-  border: none;
+button, input, textarea {
+  border:  none;
 }
 
-input, textarea {
-  border-color: var(--Grey-500-medium);
+input[type='text']:focus , input[type='email']:focus, textarea:focus {
+  outline-color: var(--Green-600-medium);
 }
 
-input[type='text'], input[type='email'] {
-  outline: 1px solid hsl(186, 15%, 59%);
-  padding-left: 1em;
+input {
+  outline: 1px solid gray;
+  border-radius: 2px;
+}
+
+p {
+  color: var(--Red);
 }
 
 #container {
   width: 330px;
-  height: 800px;
+  height: auto;
   background-color: #fff;
-  margin: 2em  auto;
+  margin: 25px auto;
+  border-radius: 10px;
+  padding: 2em;
 }
 
 legend {
-  font-size: 2.2em;
+  font-size: 2em;
+  margin-bottom: .5em;
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
-p{
-  padding: 1em 0 0 0;
-  color: var(--Red);
+.input--row1, .input--row2 , .input--row3 , .input--row5 {
+  display: flex;
+  flex-direction: column;
 }
-
-input:focus, textarea:focus {
-  outline:1px solid var(--Green-600-medium) ;
-}
-
-input[type='radio']:focus {
-  outline: none;
-}
-
 
 
 
 #form--container {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  align-items: center;
-  max-width: 330px;
-  background-color: #fff;
-  margin: 2em  auto;
-  padding: 1.5em 1em;
+  grid-template-areas: 'T'  'F' 'L' 'M' 'Q' 'D' 'S' 'K';
+  gap:  1.5em 0;
 }
 
-.input--row1, .input--row2, .input--row3
-,.input--row4, .input--row5 {
-  display: flex;
-  flex-direction: column;
+
+legend {
+  grid-area: T;
 }
 
-.input--row1 label, .input--row2 label, .input--row3 label
-,.input--row5 label {
-  margin: 1em 0;
+.grid-1 {
+  grid-area: F;
 }
 
-.grid-4 {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  margin: 1em 0 0 0;
+.grid-2 {
+  grid-area: L;
 }
 
-.space {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
-  outline: 1px solid  hsl(186, 15%, 59%);
-  margin: 1em 0;
-  
-  border-radius: 7px;
+.grid-3 {
+  grid-area: M;
 }
 
-.space input {
-  accent-color: #0c7d69;
-  margin:0  1em 0 1.2em ;
-  transform: scale(1.2);
+.grid-6 {
+  grid-area: K;
 }
 
-input {
+
+button {
+  grid-area: S;
   height: 45px;
-  border-radius: 7px;
-  border: none;
+  background-color: var(--Green-600-medium);
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--White);
 }
 
-textarea,button{
-  width: 330px;
+.grid-5  {
+  grid-area: D;
+}
+
+label {
+  margin: .5em 0;
+}
+
+p {
+  position: relative;
+  top: 10px;
+}
+
+input:not(.notMe) {
+  height: 40px;
+  border-radius: 6px;
+  padding-left: 1em;
 }
 
 textarea {
-  height: 75px;
-  
+  height: 243px;
+  margin: 1em 0; 
   border-radius: 7px;
+  outline:1px solid gray;
+  padding: 1em;
 }
 
-button {
-  height: 50px;
-  border-radius: 7px;
-  font-weight: 700;
-  color: #fff;
-  background-color: var(--Grey-900-darker);
+.input--row4 {
+  display: grid;
+  grid-template-columns: 2fr ;
+  grid-template-rows: 1fr 1fr;
+  margin: 1em 0;
+  gap: 1em;
 }
 
-.check {
-  display: flex;
-  justify-content: space-between;
-  width: 97%;
-  align-items: center;
+#Qr1, #Qr2 {
+  outline: 1px solid gray;
+  border-radius: 7px;
+  padding: .7em ;
+}
+
+input[type='radio'] {
+  margin: 0 1em ;
+  outline: none;
+  transform: scale(1.1);
+  accent-color: green;
 }
 
 input[type='checkbox'] {
-  margin-left: .5em;
+  outline: none;
+  border: none;
+  margin: 1em 0;
+  accent-color: green;
 }
 
- 
+.check {
+  margin-left: 1em;
+}
+
+
+
+
+
+@media (min-width: 1000px) {
+  #container {
+    width: 503px;
+  }
+
+  #form--container {
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 'T T T T'  'F F L L' 'M M M M' 'Q Q Q Q' 'D D D D' 'K K K K' 'S S S S';
+  }
+
+  legend {
+    grid-area: T;
+  }
+
+  .grid-1 {
+    grid-area: F;
+  }
+
+  .grid-2 {
+    grid-area: L;
+  }
+
+  .grid-3 {
+    grid-area: M;
+  }
+
+  .grid-4 {
+    grid-area: Q;
+  }
+  
+  .grid-5 {
+    grid-area: D;
+    position: relative;
+    top: -1.4em;
+  }
+
+
+  button {
+    grid-area: S;
+    height: 50px;
+    margin: 1em 0;
+  }
+
+  .grid-6 {
+    grid-area: K;
+  }
+  
+  
+
+  
+
+  .input--row4 {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 10px;
+    margin: 0;
+  }
+
+
+
+
+  #Qr1, #Qr2 {
+    padding: .7em ;
+    margin-top: 1em;
+  }
+}

@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import PopUpMe from "../pop-up-mensagem";
+import { useState } from "react";
 
 
 export default function ContactForm() {
@@ -9,11 +11,14 @@ export default function ContactForm() {
         reset()
     }
 
+    
+
     console.log(errors)
 
     return (
-        
-            <form id="form--container" onSubmit={handleSubmit(onSubmit)}>
+        <>
+        <section id='container'>
+             <form id="form--container" onSubmit={handleSubmit(onSubmit)}>
             <legend>Contact us</legend>
            <div className="grid-1">
            <div className="input--row1">
@@ -47,32 +52,33 @@ export default function ContactForm() {
           </div>
 
           <div className="grid-4">
-          <label htmlFor="">Query Type *</label>
+          <label>Query Type *</label>
           <div className="input--row4"> 
-            <div id="Qr1">
-              <div className="space" style={{outlineColor: errors.queryType ? 'red' : ''}}>
+
+            <div id="Qr1" style={{outlineColor: errors.queryType ? 'red' : ''}}>
+            <input className="notMe" {...register('queryType', {
+            required: true
+           })} name='queryType' id='queryType1' type='radio' value='General Enquiry' />
+              
               <label htmlFor="queryType1">
              General Enquiry 
             </label>
-            <input  {...register('queryType', {
-            required: true
-           })} name='queryType' id='queryType1' type='radio' value='General Enquiry' />
-              </div>
+            
             </div>
 
-            <div id="Qr2">
-             <div className="space" style={{outlineColor: errors.queryType ? 'red' : ''}}>
+            <div id="Qr2"  style={{outlineColor: errors.queryType ? 'red' : ''}} >
+            <input className="notMe"   {...register('queryType', {
+            required: true
+           })} name='queryType' id='queryType2' type='radio' value='Support Request' />
              <label htmlFor="queryType2">
             Support Request
             </label>
-            <input  {...register('queryType', {
-            required: true
-           })} name='queryType' id='queryType2' type='radio' value='Support Request' />
+          
              </div>
-            </div>
+            
              
-           </div>
            {errors.queryType ? <p>please select a query type</p> : null}
+           </div>
            
           </div>
 
@@ -80,7 +86,7 @@ export default function ContactForm() {
             
           <label htmlFor="message">Message *</label>
           <div className="input--row5">
-           <textarea {...register('message', {
+           <textarea style={{outlineColor: errors.message ? 'red' : ''}}  {...register('message', {
             required: true
            })} name='message' id='message' />
            </div>
@@ -89,19 +95,19 @@ export default function ContactForm() {
           </div>
 
           <div className="grid-6">
-          <label className='check' htmlFor="confirmTerms">
-              <input style={{borderColor: errors.confirmCheckBox ? 'red' : ''}}  {...register('confirmCheckBox', {
+          <input  className="notMe" style={{borderColor: errors.confirmCheckBox ? 'red' : ''}}  {...register('confirmCheckBox', {
             required: true
            })} name='confirmCheckBox' id='confirmTerms' type="checkbox" />
+          <label className='check' htmlFor="confirmTerms">
             I consent to being contacted by the team
             </label>   
-            
             {errors.lastName ? 
             <p>To submit this form, please consent to being contacted</p> : null}
           </div>
                      
            <button type="submit">Submit</button>
         </form>
-        
+        </section>
+        </>
     )
 }
