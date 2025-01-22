@@ -24,6 +24,7 @@ body {
 
 button, input, textarea {
   border:  none;
+  background-color: transparent;
 }
 
 input[type='text']:focus , input[type='email']:focus, textarea:focus {
@@ -39,13 +40,15 @@ p {
   color: var(--Red);
 }
 
+
+
 #container {
-  width: 330px;
+  width: 300px;
   height: auto;
   background-color: #fff;
-  margin: 25px auto;
   border-radius: 10px;
-  padding: 2em;
+  padding: 1em;
+  margin: 25px auto;
 }
 
 legend {
@@ -59,8 +62,6 @@ legend {
   display: flex;
   flex-direction: column;
 }
-
-
 
 #form--container {
   display: grid;
@@ -106,6 +107,7 @@ button {
 
 label {
   margin: .5em 0;
+  font-weight: 500;
 }
 
 p {
@@ -135,9 +137,15 @@ textarea {
   gap: 1em;
 }
 
-#Qr1, #Qr2 {
+.Qr1, .Qr2 {
   outline: 1px solid gray;
   border-radius: 7px;
+  padding: .7em ;
+}
+
+.Qr1.G-box, .Qr2.G-box {
+  outline: 1px solid green;
+  background-color: #e0f1e7;
   padding: .7em ;
 }
 
@@ -145,7 +153,7 @@ input[type='radio'] {
   margin: 0 1em ;
   outline: none;
   transform: scale(1.1);
-  accent-color: green;
+ accent-color: green;
 }
 
 input[type='checkbox'] {
@@ -160,6 +168,34 @@ input[type='checkbox'] {
 }
 
 
+.row img {
+  margin-right: 1em;
+}
+
+.row {
+  display: flex;
+}
+
+.row h1 {
+  color: var(--White);
+  letter-spacing: 1px;
+}
+
+#pop-text {
+  padding-bottom: 1em ;
+  color: var(--White);
+}
+
+#pop-sms {
+  
+  margin: 25px auto;
+  position: relative;
+  top: 2em;
+  width: 300px;
+  padding: 1em;
+  background-color: var(--Grey-900-darker);
+  border-radius: 10px;
+}
 
 
 
@@ -168,6 +204,10 @@ input[type='checkbox'] {
     width: 503px;
   }
 
+  #pop-sms {
+    width: 500px;
+  }
+  
   #form--container {
     display: grid;
     gap: 10px;
@@ -194,6 +234,7 @@ input[type='checkbox'] {
     grid-area: Q;
   }
   
+  
   .grid-5 {
     grid-area: D;
     position: relative;
@@ -212,7 +253,15 @@ input[type='checkbox'] {
   }
   
   
+  textarea {
+    height: 55px;
+    margin: 2em 0 0 0; 
+  }
 
+  .lb {
+    position: relative;
+    top: 1em;
+  }
   
 
   .input--row4 {
@@ -225,8 +274,10 @@ input[type='checkbox'] {
 
 
 
-  #Qr1, #Qr2 {
+  .Qr1, .Qr2 {
+    position: relative;
+    top: 1.5em;
     padding: .7em ;
-    margin-top: 1em;
+    margin: .7em 0;
   }
 }

@@ -1,4 +1,4 @@
-import success from './assets/icon-success-check.svg';
+import success from './icon/icon-success-check.svg';
 
 export default function PopUpMe() {
     return (

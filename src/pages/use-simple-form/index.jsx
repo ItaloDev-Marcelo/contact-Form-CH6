@@ -4,19 +4,23 @@ import { useState } from "react";
 
 
 export default function ContactForm() {
-    const {handleSubmit,register ,formState:{errors}, reset} = useForm()
+    const {handleSubmit,register ,formState:{errors}, reset, watch} = useForm();
+    const [submitForm, setSubmitForm] = useState(false);
+    const queryResult = watch('queryType')
 
-    function onSubmit(formData) {
-        console.log(formData)
+
+    function onSubmit() {
         reset()
+        setSubmitForm(true)
+        setTimeout(() => {
+          setSubmitForm(false)
+        }, 5000)
     }
 
-    
-
-    console.log(errors)
-
     return (
-        <>
+        <main>
+        
+        {submitForm ? <PopUpMe /> : null}
         <section id='container'>
              <form id="form--container" onSubmit={handleSubmit(onSubmit)}>
             <legend>Contact us</legend>
@@ -52,10 +56,10 @@ export default function ContactForm() {
           </div>
 
           <div className="grid-4">
-          <label>Query Type *</label>
+          <label className="lb">Query Type *</label>
           <div className="input--row4"> 
 
-            <div id="Qr1" style={{outlineColor: errors.queryType ? 'red' : ''}}>
+            <div className={queryResult === 'General Enquiry' ? 'Qr1 G-box' : 'Qr1'}  style={{outlineColor: errors.queryType ? 'red' : ''}}>
             <input className="notMe" {...register('queryType', {
             required: true
            })} name='queryType' id='queryType1' type='radio' value='General Enquiry' />
@@ -66,7 +70,7 @@ export default function ContactForm() {
             
             </div>
 
-            <div id="Qr2"  style={{outlineColor: errors.queryType ? 'red' : ''}} >
+            <div className={queryResult === 'Support Request' ? 'Qr2 G-box' : 'Qr2'}   style={{outlineColor: errors.queryType ? 'red' : ''}} >
             <input className="notMe"   {...register('queryType', {
             required: true
            })} name='queryType' id='queryType2' type='radio' value='Support Request' />
@@ -108,6 +112,6 @@ export default function ContactForm() {
            <button type="submit">Submit</button>
         </form>
         </section>
-        </>
+        </main>
     )
 }
