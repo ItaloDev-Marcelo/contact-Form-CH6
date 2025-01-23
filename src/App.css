@@ -88,8 +88,6 @@ legend {
 
 .grid-6 {
   grid-area: K;
-  display: flex;
-  align-items: center;
 }
 
 
@@ -205,7 +203,7 @@ input[type='checkbox'] {
 
 
 
-@media (min-width: 1000px) {
+@media (min-width: 700px) {
   #container {
     width: 503px;
     padding: 2em;
