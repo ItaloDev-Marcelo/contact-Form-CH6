@@ -105,7 +105,7 @@ export default function ContactForm() {
           <label className='check' htmlFor="confirmTerms">
             I consent to being contacted by the team
             </label>   
-            {errors.lastName ? 
+            {errors.confirmCheckBox  ? 
             <p>To submit this form, please consent to being contacted</p> : null}
           </div>
                      

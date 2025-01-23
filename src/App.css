@@ -88,6 +88,8 @@ legend {
 
 .grid-6 {
   grid-area: K;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -108,6 +110,7 @@ button {
 label {
   margin: .5em 0;
   font-weight: 500;
+  color: var(--Grey-500-medium);
 }
 
 p {
@@ -127,6 +130,10 @@ textarea {
   border-radius: 7px;
   outline:1px solid gray;
   padding: 1em;
+}
+
+button:hover , button:active {
+  background-color: var(--Grey-900-darker);
 }
 
 .input--row4 {
@@ -167,7 +174,6 @@ input[type='checkbox'] {
   margin-left: 1em;
 }
 
-
 .row img {
   margin-right: 1em;
 }
@@ -202,6 +208,7 @@ input[type='checkbox'] {
 @media (min-width: 1000px) {
   #container {
     width: 503px;
+    padding: 2em;
   }
 
   #pop-sms {
@@ -280,4 +287,19 @@ input[type='checkbox'] {
     padding: .7em ;
     margin: .7em 0;
   }
+}
+
+@media (min-width: 1440px)  {
+  #container {
+    margin: 7em auto 0 auto;
+  }
+
+  #pop-sms {
+  
+    position: relative;
+    top: 7em;
+    padding: 2em;
+  }
+  
+  
 }
