@@ -43,11 +43,11 @@ p {
 
 
 #container {
-  width: 300px;
+  width: 330px;
   height: auto;
   background-color: #fff;
   border-radius: 10px;
-  padding: 1em;
+  padding: 1.2em;
   margin: 25px auto;
 }
 
