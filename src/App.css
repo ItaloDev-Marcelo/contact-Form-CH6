@@ -87,12 +87,12 @@ legend {
 }
 
 .grid-6 {
-  grid-area: K;
+  grid-area: S;
 }
 
 
 button {
-  grid-area: S;
+  grid-area: K;
   height: 45px;
   background-color: var(--Green-600-medium);
   border-radius: 10px;
